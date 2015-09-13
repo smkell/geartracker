@@ -1,0 +1,47 @@
+<!doctype html>
+<html ng-app="todoApp">
+	<head>
+		<title>Geartracker</title>
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="todo.js"></script>
+		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="todo.css">
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-static-top navbar-inverse">
+			<div class="container">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="/"><span class="glyphicon glyphicon-home"></span>Home</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="jumbotron text-center">
+			<div class="container">
+				<a href="/" class="lang-logo">
+					<img src="lang-logo.png">
+				</a>
+				<h1>Geartracker</h1>
+			</div>
+		</div>
+		<div class="container">
+			<h2>Todo</h2>
+			<div ng-controller="TodoListController as todoList">
+				<span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span> [ <a href="" ng-click="todoList.archive()">archive</a> ]
+				<ul class="unstyled">
+					<li ng-repeat="todo in todoList.todos">
+						<input type="checkbox" ng-model="todo.done">
+						<span class="done-{{todo.done}}">{{todo.text}}</span>
+					</li>
+				</ul>
+				<form ng-submint="todoList.addTodo()">
+					<input type="text" ng-model="todoList.todoText" size="30" placeholder="add new todo here">
+					<input type="submit" class="btn-primary" value="add">
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
