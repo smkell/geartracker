@@ -1,0 +1,14 @@
+{
+	"name": "geartracker",
+	"description": "Web app for tracking gear prices.",
+	"keywords": [
+		"backpacking",
+		"camping",
+		"hiking",
+		"hockey"
+	],
+	"image": "heroku/go:1.5",
+	"mount_dir": "src/github.com/smkell/geartracker",
+	"website": "http://github.com/smkell/geartracker",
+	"repository": "http://github.com/smkell/geartracker"
+}
